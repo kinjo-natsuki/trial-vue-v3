@@ -1,12 +1,28 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <HelloWorld msg="Hello World!"/>
+      <CountUpCompositionApi />
+      <CountUpVuex />
     </div>
-    <router-view/>
   </div>
 </template>
+
+<script>
+import { defineComponent } from 'vue';
+import HelloWorld from '@/components/HelloWorld.vue'
+import CountUpCompositionApi  from '@/components/CountUpCompositionApi.vue'
+import CountUpVuex  from '@/components/CountUpVuex.vue'
+
+export default defineComponent({
+  name: 'Home',
+  components: {
+    HelloWorld,
+    CountUpCompositionApi,
+    CountUpVuex
+  }
+})
+</script>
 
 <style>
 #app {
