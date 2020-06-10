@@ -12,7 +12,7 @@ import { defineComponent, reactive, ref, computed } from 'vue';
 
 export default defineComponent({
   setup() {
-    const test = {
+    const hello = {
       msg: ref('hello'),
       msg2: ref('hello2')
     }
@@ -21,18 +21,18 @@ export default defineComponent({
     });
     const increment = () => {
       state.count++;
-      test.msg = 'increment';
-      test.msg2 = 'aaaaa';
+      hello.msg = 'increment';
+      hello.msg2 = 'aaaaa';
     };
     const decrement = () => {
       state.count--;
     }
     const combinedText = computed(() => {
-      return test.msg.value + test.msg2.value
+      return hello.msg.value + hello.msg2.value
     })
     return {
       combinedText,
-      test,
+      hello,
       state,
       increment,
       decrement
