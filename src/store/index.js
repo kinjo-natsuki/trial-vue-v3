@@ -3,6 +3,9 @@ import { createStore } from 'vuex'
 const state = {
   count: 0,
 }
+const getters = {
+  getCount: (state) => state.count + 'get'
+}
 const mutations = {
   increment(state) {
     state.count ++
@@ -11,8 +14,17 @@ const mutations = {
     state.count --
   }
 }
+const actions = {
+  increment2({commit}) {
+    commit('increment')
+    commit('increment')
+  }
+}
+
 
 export default createStore({
-  state,
-  mutations,
+      state,
+      mutations,
+      actions,
+      getters
 })
