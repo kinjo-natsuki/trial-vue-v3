@@ -2,26 +2,21 @@
   <div id="app">
     <div id="nav">
       <HelloWorld msg="Hello World!"/>
-      <CountUpCompositionApi />
-      <CountUpVuex />
+
     </div>
   </div>
 </template>
 
-<script>
-import { defineComponent } from 'vue';
-import HelloWorld from '@/components/HelloWorld.vue'
-import CountUpCompositionApi  from '@/components/CountUpCompositionApi.vue'
-import CountUpVuex  from '@/components/CountUpVuex.vue'
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator';
+import HelloWorld from './components/HelloWorld.vue';
 
-export default defineComponent({
-  name: 'Home',
+@Component({
   components: {
     HelloWorld,
-    CountUpCompositionApi,
-    CountUpVuex
-  }
+  },
 })
+export default class App extends Vue {}
 </script>
 
 <style>
@@ -31,18 +26,6 @@ export default defineComponent({
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+  margin-top: 60px;
 }
 </style>

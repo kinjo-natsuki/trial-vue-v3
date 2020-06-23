@@ -4,18 +4,18 @@ const state = {
   count: 0,
 }
 const getters = {
-  getCount: (state) => state.count + 'get'
+  getCount: (state: any) => state.count + 'get'
 }
 const mutations = {
-  increment(state) {
+  increment(state: any) {
     state.count ++
   },
-  decrement(state) {
+  decrement(state: any) {
     state.count --
   }
 }
 const actions = {
-  increment2({commit}) {
+  increment2({ commit }: {commit: any}) {
     commit('increment')
     commit('increment')
   }
@@ -23,8 +23,8 @@ const actions = {
 
 
 export default createStore({
-      state,
-      mutations,
-      actions,
-      getters
+  state,
+  mutations,
+  actions,
+  getters
 })
