@@ -2,29 +2,27 @@
   <button
     :type="type"
     :class="[$style[buttonType], disabled && $style.disabled]"
-    :disabled="this.disabled"
+    :disabled="disabled"
     role="button"
-    @click="onClick"
+    @click.prevent="onClick"
   >
     <slot />
   </button>
 </template>
 
 <script>
-import { defineComponent } from "vue";
-
-export default defineComponent({
+export default {
   props: {
     type: {
       type: String,
-      default: 'button',
+      default: () => 'button',
       validate(value) {
         return ['submit', 'reset', 'button'].includes(value)
       },
     },
     buttonType: {
       type: String,
-      default: 'primary',
+      default: () => 'primary',
       validate(value) {
         return [
           'primary',
@@ -40,61 +38,19 @@ export default defineComponent({
     },
     disabled: {
       type: Boolean,
-      default: true,
+      default: () => true,
     },
   },
-  setup(props, context) {
-    const onClick = (ev) => {
-      console.log('base button')
-      if (props.disabled) {
+  methods: {
+    onClick(ev) {
+    console.log('base button')
+      if (this.disabled) {
         return
       }
-      context.emit('click', ev)
-    };
-    return { onClick };
-  }
-})
-
-// export default {
-//   props: {
-//     type: {
-//       type: String,
-//       default: () => 'button',
-//       validate(value) {
-//         return ['submit', 'reset', 'button'].includes(value)
-//       },
-//     },
-//     buttonType: {
-//       type: String,
-//       default: () => 'primary',
-//       validate(value) {
-//         return [
-//           'primary',
-//           'primarySmall',
-//           'light',
-//           'lightSmall',
-//           'cancel',
-//           'cancelSmall',
-//           'secondary',
-//           'secondarySimple',
-//         ].includes(value)
-//       },
-//     },
-//     disabled: {
-//       type: Boolean,
-//       default: () => true,
-//     },
-//   },
-//   methods: {
-//     onClick(ev) {
-//     console.log('base button')
-//       if (this.disabled) {
-//         return
-//       }
-//       this.$emit('click', ev)
-//     },
-//   },
-// }
+      this.$emit('click', ev)
+    },
+  },
+}
 </script>
 
 <style lang="scss" module>

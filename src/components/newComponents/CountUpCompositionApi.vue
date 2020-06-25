@@ -21,8 +21,8 @@ export default defineComponent({
     });
     const increment = () => {
       state.count++;
-      hello.msg = 'increment';
-      hello.msg2 = 'aaaaa';
+      hello.msg.value = 'clicked ';
+      hello.msg2.value = 'count up buuton';
     };
     const decrement = () => {
       state.count--;

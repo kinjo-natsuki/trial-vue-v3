@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div id="nav">
-      <HelloWorld msg="Hello World!"/>
+      <HelloWorld msg="Hello World!" />
       <CountUpCompositionApi />
       <CountUpVuex />
     </div>

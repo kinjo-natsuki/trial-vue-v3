@@ -1,26 +1,29 @@
 <template>
-  <BaseButton
+  <BaseButtonV2
     ref="toggleButton"
     buttonType="secondarySimple"
     :disabled="false"
     :class="$style.button"
-    @click.stop="onClick"
+    @click="onClick"
   >
-    <template v-if="this.isClose">
-      <span>close</span>
+    <template v-if="state.isClose">
+      <span>toggle button</span>
     </template>
     <template v-else>
       <span>open</span>
     </template>
-  </BaseButton>
+  </BaseButtonV2>
 </template>
 
 <script>
-import BaseButton from '../atoms/baseButton.vue'
+import { defineComponent, reactive } from 'vue';
+//import BaseButton from '../atoms/baseButton.vue';
+import BaseButtonV2 from '../atoms/baseButton_v2.vue';
 
-export default {
+export default defineComponent({
   components: {
-    BaseButton,
+    // BaseButton,
+    BaseButtonV2
   },
   props: {
     labelText: {
@@ -28,19 +31,45 @@ export default {
       default: () => ['label A', 'label B'],
     },
   },
-  data() {
-    return {
-      isClose: true,
+  setup(props, context) {
+    const state = reactive({
+      isClose: true
+    });
+    const onClick = (ev) => {
+      state.isClose = !state.isClose
+      //context.el.blur()
+      context.emit('click', ev)
     }
-  },
-  methods: {
-    onClick(ev) {
-      this.isClose = !this.isClose
-      this.$el.blur()
-      this.$emit('click', ev)
-    },
-  },
-}
+    return{
+      state,
+      onClick
+    };
+  }
+})
+
+// export default {
+//   components: {
+//     BaseButton,
+//   },
+//   props: {
+//     labelText: {
+//       type: Array,
+//       default: () => ['label A', 'label B'],
+//     },
+//   },
+//   data() {
+//     return {
+//       isClose: true,
+//     }
+//   },
+//   methods: {
+//     onClick() {
+//       //this.isClose = !this.isClose
+//       ///this.$el.blur()
+//      // this.$emit('click', ev)
+//     },
+//   },
+// }
 </script>
 
 <style lang="scss" module>
