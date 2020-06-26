@@ -17,12 +17,10 @@
 
 <script>
 import { defineComponent, reactive } from 'vue';
-//import BaseButton from '../atoms/baseButton.vue';
 import BaseButtonV2 from '../atoms/baseButton_v2.vue';
 
 export default defineComponent({
   components: {
-    // BaseButton,
     BaseButtonV2
   },
   props: {
@@ -37,7 +35,7 @@ export default defineComponent({
     });
     const onClick = (ev) => {
       state.isClose = !state.isClose
-      //context.el.blur()
+      //context.root.el.blur()
       context.emit('click', ev)
     }
     return{
@@ -46,30 +44,6 @@ export default defineComponent({
     };
   }
 })
-
-// export default {
-//   components: {
-//     BaseButton,
-//   },
-//   props: {
-//     labelText: {
-//       type: Array,
-//       default: () => ['label A', 'label B'],
-//     },
-//   },
-//   data() {
-//     return {
-//       isClose: true,
-//     }
-//   },
-//   methods: {
-//     onClick() {
-//       //this.isClose = !this.isClose
-//       ///this.$el.blur()
-//      // this.$emit('click', ev)
-//     },
-//   },
-// }
 </script>
 
 <style lang="scss" module>

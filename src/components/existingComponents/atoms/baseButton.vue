@@ -45,7 +45,6 @@ export default defineComponent({
   },
   setup(props, context) {
     const onClick = (ev) => {
-      console.log('base button')
       if (props.disabled) {
         return
       }
@@ -54,47 +53,6 @@ export default defineComponent({
     return { onClick };
   }
 })
-
-// export default {
-//   props: {
-//     type: {
-//       type: String,
-//       default: () => 'button',
-//       validate(value) {
-//         return ['submit', 'reset', 'button'].includes(value)
-//       },
-//     },
-//     buttonType: {
-//       type: String,
-//       default: () => 'primary',
-//       validate(value) {
-//         return [
-//           'primary',
-//           'primarySmall',
-//           'light',
-//           'lightSmall',
-//           'cancel',
-//           'cancelSmall',
-//           'secondary',
-//           'secondarySimple',
-//         ].includes(value)
-//       },
-//     },
-//     disabled: {
-//       type: Boolean,
-//       default: () => true,
-//     },
-//   },
-//   methods: {
-//     onClick(ev) {
-//     console.log('base button')
-//       if (this.disabled) {
-//         return
-//       }
-//       this.$emit('click', ev)
-//     },
-//   },
-// }
 </script>
 
 <style lang="scss" module>
