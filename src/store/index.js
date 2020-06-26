@@ -1,30 +1,13 @@
+// import Vue from 'vue'
 import { createStore } from 'vuex'
+import countUp from './modules/countUp'
 
-const state = {
-  count: 0,
-}
-const getters = {
-  getCount: (state) => state.count + 'get'
-}
-const mutations = {
-  increment(state) {
-    state.count ++
-  },
-  decrement(state) {
-    state.count --
+// Vue.use(Vuex)
+
+const store = createStore({
+  modules: {
+    a: countUp
   }
-}
-const actions = {
-  increment2({commit}) {
-    commit('increment')
-    commit('increment')
-  }
-}
-
-
-export default createStore({
-      state,
-      mutations,
-      actions,
-      getters
 })
+
+export default store
