@@ -10,9 +10,9 @@
 
 <script>
 import { defineComponent } from 'vue';
-import HelloWorld from './HelloWorld.vue'
-import CountUpCompositionApi  from './CountUpCompositionApi.vue'
-import CountUpVuex  from './CountUpVuex.vue'
+import HelloWorld from '../HelloWorld.vue'
+import CountUpCompositionApi  from '../CountUpCompositionApi.vue'
+import CountUpVuex  from '../CountUpVuex.vue'
 
 export default defineComponent({
   name: 'New',

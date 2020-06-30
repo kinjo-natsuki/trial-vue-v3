@@ -1,28 +1,40 @@
 <template>
   <div id="app">
     <div id="nav">
-      <New />
-      <ToggleButton />
-      <ToggleButtonV2 />
+      <router-link to="/">Top</router-link>
+      <router-link to="/togglebutton">Page1</router-link>
+      <router-link to="/togglebuttonv2">Page2</router-link>
     </div>
+    <router-view />
   </div>
 </template>
 
 <script>
 import { defineComponent } from 'vue';
-import New from './components/newComponents/new.vue'
-import ToggleButton from './components/existingComponents/molecules/toggleButton.vue'
-import ToggleButtonV2 from './components/existingComponents/molecules/toggleButton_v2.vue'
-
 export default defineComponent({
-  name: 'Home',
-  components: {
-    New,
-    ToggleButton,
-    ToggleButtonV2
-  }
+  name: 'Home'
 })
 </script>
 
 <style>
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+}
+
+#nav {
+  padding: 30px;
+}
+
+#nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+#nav a.router-link-exact-active {
+  color: #42b983;
+}
 </style>
