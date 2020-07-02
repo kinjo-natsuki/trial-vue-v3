@@ -21,3 +21,10 @@ export const actions = {
     commit('increment')
   }
 }
+
+export default {
+  state,
+  getters,
+  actions,
+  mutations,
+}
