@@ -7,7 +7,7 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import { defineComponent, reactive, ref, computed } from 'vue';
 
 export default defineComponent({

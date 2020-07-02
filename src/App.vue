@@ -1,20 +1,20 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+    <div id="nav">
+      <router-link to="/">Top</router-link>
+      <router-link to="/togglebutton">Page1</router-link>
+      <router-link to="/togglebuttonv2">Page2</router-link>
+    </div>
+    <router-view />
   </div>
 </template>
 
 <script lang="ts">
-//import Vue from 'vue';
-import HelloWorld from './components/HelloWorld.vue';
+import { defineComponent } from 'vue';
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-};
+export default defineComponent({
+  name: 'Home'
+})
 </script>
 
 <style lang="scss">
@@ -25,5 +25,16 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+#nav {
+  padding: 30px;
+}
+#nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+#nav a.router-link-exact-active {
+  color: #42b983;
 }
 </style>

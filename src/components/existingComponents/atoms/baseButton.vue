@@ -10,41 +10,46 @@
   </button>
 </template>
 
-<script>
+<script lang="ts">
 import { defineComponent } from "vue";
-
+type Props = {
+  type: string,
+  buttonType: string,
+  disabled: boolean
+};
 export default defineComponent({
-  props: {
-    type: {
-      type: String,
-      default: 'button',
-      validate(value) {
-        return ['submit', 'reset', 'button'].includes(value)
-      },
-    },
-    buttonType: {
-      type: String,
-      default: 'primary',
-      validate(value) {
-        return [
-          'primary',
-          'primarySmall',
-          'light',
-          'lightSmall',
-          'cancel',
-          'cancelSmall',
-          'secondary',
-          'secondarySimple',
-        ].includes(value)
-      },
-    },
-    disabled: {
-      type: Boolean,
-      default: true,
-    },
-  },
-  setup(props, context) {
-    const onClick = (ev) => {
+  props: ['type', 'buttonType', 'disabled'],
+  // props: {
+  //   type: {
+  //     // type: String,
+  //     default: 'button',
+  //     validate(value) {
+  //       return ['submit', 'reset', 'button'].includes(value)
+  //     },
+  //   },
+  //   buttonType: {
+  //     // type: String,
+  //     default: 'primary',
+  //     validate(value) {
+  //       return [
+  //         'primary',
+  //         'primarySmall',
+  //         'light',
+  //         'lightSmall',
+  //         'cancel',
+  //         'cancelSmall',
+  //         'secondary',
+  //         'secondarySimple',
+  //       ].includes(value)
+  //     },
+  //   },
+  //   disabled: {
+  //     // type: Boolean,
+  //     default: true,
+  //   },
+  // },
+  setup(props: Props, context: any) {
+    const onClick = (ev: object) => {
       if (props.disabled) {
         return
       }
