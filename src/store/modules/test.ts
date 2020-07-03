@@ -1,10 +1,9 @@
-import { ActionContext } from 'vuex';
 export interface State {
   count: number;
 }
 
 export const state = {
-  count: 0,
+  count: 10,
 }
 
 export const getters = {
@@ -12,19 +11,19 @@ export const getters = {
 }
 
 export const mutations = {
-  increment(state: State) {
-    state.count ++
-  },
-  decrement(state: State) {
-    state.count --
-  }
+  // increment(state: State) {
+  //   state.count ++
+  // },
+  // decrement(state: State) {
+  //   state.count --
+  // }
 }
 
 export const actions = {
-  increment2({ commit }: {commit: any}) {
-    commit('increment')
-    commit('increment')
-  }
+  // increment2({ commit }: {commit: any}) {
+  //   commit('increment')
+  //   commit('increment')
+  // }
 }
 
 export default {

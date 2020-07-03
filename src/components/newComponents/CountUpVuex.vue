@@ -15,16 +15,19 @@ import { computed } from 'vue';
 export default ({
   setup() {
     const store: object = useStore();
-    const count: number = computed(() => store.state.count);
-    const getCount: string = computed(() => store.getters.getCount);
+    const count: number = computed(() => store.state.countUp.count);
+    const getCount: string = computed(() => store.getters.countUp/getCount);
     function increment2() {
-      store.dispatch("increment2");
+      console.log('store.state', store.state)
+      console.log('store.getters', store.getters)
+      console.log('store.dispatch', store.dispatch)
+      store.dispatch("countUp/increment2");
     }
     function increment() {
-      store.commit("increment");
+      store.commit("countUp/increment");
     }
     function decrement() {
-      store.commit("decrement");
+      store.commit("countUp/decrement");
     }
     return { getCount, count, increment, decrement, increment2 };
   }

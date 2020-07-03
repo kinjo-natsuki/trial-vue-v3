@@ -1,8 +1,11 @@
 
 import { createStore } from 'vuex';
-import { State, state, actions, mutations, getters } from './modules/countUp';
-//import moduleA from './modules/countUp';
+import countUp from './modules/countUp';
+import test from './modules/test'
 
-export const store = createStore<State>({
-  state, actions, mutations, getters
+export const store = createStore({
+  modules: {
+    countUp,
+    test
+  }
 })
