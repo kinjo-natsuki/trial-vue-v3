@@ -14,9 +14,9 @@ import { computed } from 'vue';
 
 export default ({
   setup() {
-    const store = useStore();
-    const count = computed(() => store.state.count);
-    const getCount = computed(() => store.getters.getCount);
+    const store: object = useStore();
+    const count: number = computed(() => store.state.count);
+    const getCount: string = computed(() => store.getters.getCount);
     function increment2() {
       store.dispatch("increment2");
     }

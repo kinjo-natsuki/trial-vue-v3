@@ -15,28 +15,29 @@
   </BaseButtonV2>
 </template>
 
-<script>
+<script lang="ts">
 import { defineComponent, reactive } from 'vue';
 import BaseButtonV2 from '../atoms/baseButton_v2.vue';
+
+type Props = {
+  labelText: array
+}
+
+//type EmitOption = 'click';
 
 export default defineComponent({
   components: {
     BaseButtonV2
   },
-  props: {
-    labelText: {
-      type: Array,
-      default: () => ['label A', 'label B'],
-    },
-  },
-  setup(props, context) {
+  props: ['labelText'],
+  setup(props: Props,  content: any) {
     const state = reactive({
       isClose: true
     });
-    const onClick = (ev) => {
+    const onClick = (ev: object) => {
       state.isClose = !state.isClose
       //context.root.el.blur()
-      context.emit('click', ev)
+      content.emit('click'  , ev)
     }
     return{
       state,

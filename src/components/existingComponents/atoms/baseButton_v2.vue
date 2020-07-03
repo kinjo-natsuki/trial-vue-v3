@@ -10,7 +10,7 @@
   </button>
 </template>
 
-<script>
+<script >
 export default {
   props: {
     type: {

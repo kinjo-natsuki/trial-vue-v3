@@ -8,15 +8,22 @@
 </template>
 
 <script lang="ts">
+type Hello = {
+  msg: string,
+  msg2: string,
+}
+type State = {
+  count: number,
+}
 import { defineComponent, reactive, ref, computed } from 'vue';
 
 export default defineComponent({
   setup() {
-    const hello = {
+    const hello: Hello = {
       msg: ref('hello'),
       msg2: ref('hello2')
     }
-    const state = reactive({
+    const state: State = reactive({
       count: 0
     });
     const increment = () => {
@@ -27,7 +34,7 @@ export default defineComponent({
     const decrement = () => {
       state.count--;
     }
-    const combinedText = computed(() => {
+    const combinedText: string = computed(() => {
       return hello.msg.value + hello.msg2.value
     })
     return {
